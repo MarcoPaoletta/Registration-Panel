@@ -1,0 +1,119 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://rsc/app/app.gd" type="Script" id=1]
+[ext_resource path="res://rsc/exit/exit.tscn" type="PackedScene" id=2]
+
+[node name="app" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="cube" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -281.5
+margin_top = -97.5
+margin_right = -86.5
+margin_bottom = 97.5
+rect_pivot_offset = Vector2( 97, 97 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="color_picker_button" type="ColorPickerButton" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 219.0
+margin_top = -32.0
+margin_right = 421.0
+margin_bottom = 32.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="exit" parent="." instance=ExtResource( 2 )]
+
+[node name="current_user" type="Label" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -14.0
+margin_right = 40.0
+
+[node name="cube_html" type="Label" parent="."]
+margin_left = 731.0
+margin_top = 249.0
+margin_right = 933.0
+margin_bottom = 263.0
+text = "#ffffff"
+align = 1
+valign = 1
+
+[node name="x_y" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 140.0
+margin_top = -97.0
+margin_right = 180.0
+margin_bottom = 130.0
+text = "X      Y"
+valign = 2
+
+[node name="cube_scale" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 53.0
+margin_top = 147.0
+margin_right = 270.0
+margin_bottom = 161.0
+text = "Cube scale: 1, 1"
+align = 1
+
+[node name="size_x" type="VSlider" parent="."]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -376.0
+margin_top = -97.0
+margin_right = -360.0
+margin_bottom = 99.0
+min_value = 0.5
+max_value = 1.5
+step = 0.001
+value = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="size_y" type="VSlider" parent="."]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -344.0
+margin_top = -97.0
+margin_right = -328.0
+margin_bottom = 99.0
+min_value = 0.5
+max_value = 1.5
+step = 0.001
+value = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="color_changed" from="color_picker_button" to="." method="_on_color_picker_button_color_changed"]
+[connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]
+[connection signal="value_changed" from="size_x" to="." method="_on_size_x_value_changed"]
+[connection signal="value_changed" from="size_y" to="." method="_on_size_y_value_changed"]
